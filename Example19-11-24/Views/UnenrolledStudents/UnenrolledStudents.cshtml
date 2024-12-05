@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Example19_11_24.Data.Student>
+
+@{
+    ViewData["Title"] = "UnenrolledStudents";
+}
+
+<h1>UnenrolledStudents</h1>
+
+@if (!Model.Any())
+{
+    <p>No students are currently unenrolled in any courses.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.StudentId</td>
+                    <td>@student.FirstName @student.LastName</td>
+                    <td>@student.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
